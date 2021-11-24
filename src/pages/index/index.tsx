@@ -3,10 +3,13 @@ import { FC } from "@tarojs/taro";
 import { View, Text } from "@tarojs/components";
 import { SwipeEventData, useSwipeable } from "react-swipeable"
 import { useWinSize, useXState, useSwipeX } from "@/utils/hooks";
+import Button from "@/components/Button";
 import ItemInfo from "./components/itemInfo";
-import "./index.scss";
+import "./index.less";
+
 
 const Index: FC = () => {
+  
   const [count, setCount] = useXState(0);
   let start = 0
   let distance = 0
@@ -64,6 +67,7 @@ const Index: FC = () => {
 
   return (
     <View>
+      <Button a={1} className='btn' size='mini' >按钮</Button>
       <View>{count}</View>
       <View className='swiperWrap' {...handlers}>
         <View

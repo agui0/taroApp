@@ -1,0 +1,29 @@
+.button {
+  font-size: 18px;
+  color: white;
+  box-sizing: border-box;
+  background-color: #3a8fff;
+  height: 44px;
+  line-height: 44px;
+  border-radius: 4px;
+  &::after {
+    border: none;
+  }
+}
+
+.primaryButton:not([disabled]):active {
+  color: white;
+  background-color: rgba(58, 143, 255, 0.6);
+}
+
+.textButton {
+  border: 1px solid #e7e7e7;
+  color: var(--text-color);
+  background-color: white;
+}
+
+.disabledButton[disabled] {
+  background: #ebeef5;
+  color: #717378;
+  // border: none;
+}
