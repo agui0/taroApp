@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useSwipeable } from 'react-swipeable';
 
+
 export type SwipeXOptions = {
   padding?: number; // 左右的间距
   dir?: 'ltr' | 'rtl'; // 方向 左to右 右to左
