@@ -4,6 +4,7 @@ import { View, Text } from "@tarojs/components";
 import { SwipeEventData, useSwipeable } from "react-swipeable"
 import { useWinSize, useXState, useSwipeX } from "@/utils/hooks";
 import Button from "@/components/Button";
+import Form from "@/components/Form";
 import ItemInfo from "./components/itemInfo";
 import "./index.less";
 
@@ -91,6 +92,9 @@ const Index: FC = () => {
         add
       </View>
       {ChildItemInfo}
+      <Form>
+        <Form.Item label='名称'>表单项</Form.Item>
+      </Form>
       {/* <ItemInfo name="小陈" age={11}></ItemInfo> */}
       {/* {list.map((item, index) => {
         return <ItemInfo key={index} {...item}></ItemInfo>;
