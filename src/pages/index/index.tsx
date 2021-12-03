@@ -17,7 +17,8 @@ const Index: FC = () => {
   const [rightWidth, setRightWidth] = useState(0)
   const [right, setRight] = useState(0)
   // const { x, handlers } = useSwipeX({ padding: 12, dir: "rtl" });
-  const rightRef = useRef<HTMLDivElement>()
+  const rightRef = useRef<HTMLDivElement>();
+  const formRef = useRef(null);
 
   useEffect(() => {
     const node = rightRef.current
@@ -92,8 +93,8 @@ const Index: FC = () => {
         add
       </View>
       {ChildItemInfo}
-      <Form>
-        <Form.Item label='名称'>表单项</Form.Item>
+      <Form ref={formRef}>
+        <Form.Item label='名称' name='name'>表单项</Form.Item>
       </Form>
       {/* <ItemInfo name="小陈" age={11}></ItemInfo> */}
       {/* {list.map((item, index) => {

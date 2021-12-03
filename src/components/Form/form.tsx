@@ -1,7 +1,7 @@
 import { FC } from '@tarojs/taro';
 import { View } from '@tarojs/components';
-import { ReactNode } from 'react';
-
+import { ReactNode, useState } from 'react';
+import FormContent from './content';
 
 export type FormProps = {
   value?: Record<string, any>
@@ -13,13 +13,16 @@ export type FormRef = {
 }
 
 const Form: FC<FormProps> = (props) => {
-  const { children } = props;
-  console.log('children', children);
+  const { children, labelWidth } = props;
+  console.log('children', props);
+  const [invalidNames, setInvalidNames] = useState<string[]>([])
   
   return (
-    <View>
-      {children}
-    </View>
+    <FormContent.Provider value={{labelWidth, invalidNames}}>
+      <View>
+        {children}
+      </View>
+    </FormContent.Provider>
   )
 }
 
