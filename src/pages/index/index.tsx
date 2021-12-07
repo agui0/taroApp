@@ -16,15 +16,20 @@ const Index: FC = () => {
   let distance = 0
   const [rightWidth, setRightWidth] = useState(0)
   const [right, setRight] = useState(0)
+  const [formData, setFormData] = useState({
+    name: '陈先生',
+    age: null,
+  });
   // const { x, handlers } = useSwipeX({ padding: 12, dir: "rtl" });
   const rightRef = useRef<HTMLDivElement>();
   const formRef = useRef(null);
-
+  
   useEffect(() => {
     const node = rightRef.current
     if (node) {
       setRightWidth(node.clientWidth)
     }
+    // console.log('formRef', formRef);
   }, [rightRef])
   const handlers = useSwipeable({
     onSwiping: (evt: SwipeEventData) => {
@@ -66,7 +71,11 @@ const Index: FC = () => {
     []
   );
   // console.log('right', right);
-
+  const saveHandle = () => {
+    const isValid = formRef?.current?.validate();
+    // console.log(isValid);
+    
+  }
   return (
     <View>
       <Button a={1} className='btn' size='mini' >按钮</Button>
@@ -93,9 +102,11 @@ const Index: FC = () => {
         add
       </View>
       {ChildItemInfo}
-      <Form ref={formRef}>
-        <Form.Item label='名称' name='name'>表单项</Form.Item>
+      <Form labelWidth={140} ref={formRef} value={formData}>
+        <Form.Item label='姓名' name='name'>{formData.name}</Form.Item>
+        <Form.Item label='年龄' name='age' required asterisk>{formData.age}</Form.Item>
       </Form>
+      <Button onClick={() => saveHandle()}>保存</Button>
       {/* <ItemInfo name="小陈" age={11}></ItemInfo> */}
       {/* {list.map((item, index) => {
         return <ItemInfo key={index} {...item}></ItemInfo>;
