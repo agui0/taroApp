@@ -22,7 +22,7 @@ const Form = (props: FormProps, ref) => {
   const validateItems = childrenNode.filter((item: ReactElement<FormItemProp>) => {
     const itemProps = item.props
     return itemProps.required && itemProps.name
-  }) as Array<React.ReactElement<FormItemProp>>
+  }) as Array<ReactElement<FormItemProp>>
   // console.log('value', value);
   
   useImperativeHandle(ref, (): FormRef => ({
